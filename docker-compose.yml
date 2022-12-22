@@ -5,8 +5,8 @@ services:
     build: .
     expose:
       - 8014
-    command: sh -c 'python /library/porrima/manage.py runserver 0.0.0.0:8014'
+    command: sh -c 'python /library/mysite/manage.py runserver 0.0.0.0:8014'
     volumes:
-      - ./:/library/porrima
+      - ./mysite:/library/mysite/
     ports:
-      - 8014:8014
+      - 8000:8014

@@ -12,7 +12,7 @@ WORKDIR /install
 ##################
 # Requirements   #
 ##################
+RUN python --version
 RUN mkdir /requirements
 COPY ./requirements /requirements
 RUN pip install --upgrade pip && pip install --user --no-deps --no-warn-script-location -r /requirements/requirements.txt
-RUN python -m django --version
