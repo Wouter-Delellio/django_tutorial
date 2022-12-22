@@ -1,0 +1,30 @@
+# ignore IDE settings
+.idea
+.DS_store
+
+# ignore db files
+*.sqlite3
+
+# ignore python build files
+__pycache__/
+*.pyc
+.mypy_cache
+.coverage
+*.orig
+
+# ignore ssh keys
+/.ssh/id_rsa
+/.ssh/known_hosts
+
+# ignore filed covers
+ourcover/
+
+# ignore collected static and media files
+/collected_static/
+/media/
+
+# ignore collected logs
+/logs/*
+
+# ignore sandbox
+/sandbox/
