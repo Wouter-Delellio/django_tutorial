@@ -6,7 +6,7 @@
 *.sqlite3
 
 # ignore python build files
-__pycache__/
+**/__pycache__/
 *.pyc
 .mypy_cache
 .coverage
