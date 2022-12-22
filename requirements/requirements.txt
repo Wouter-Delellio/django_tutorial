@@ -1,0 +1,7 @@
+# To see dependencies
+# * go to bash
+# * pip install [package]
+# * pipdeptree -p [package]
+
+# The Django framework
+django==3.2.12

@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  web:
+    build: .
+    expose:
+      - 8014
+    command: sh -c 'python /library/porrima/manage.py runserver 0.0.0.0:8014'
+    volumes:
+      - ./:/library/porrima
+    ports:
+      - 8014:8014
