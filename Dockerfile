@@ -20,3 +20,5 @@ FROM base AS app
 
 COPY --from=builder /root/.local /root/.local
 ENV PATH=/root/.local/bin:$PATH
+
+WORKDIR ${SRC_DIR}

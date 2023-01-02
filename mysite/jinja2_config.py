@@ -5,7 +5,7 @@ from django.utils import translation, timezone
 from django.utils.dateformat import format
 from jinja2 import Environment
 
-from api.client import get_client
+# from api.client import get_client
 
 
 def jinja2_datetime(value):
@@ -23,17 +23,17 @@ def jinja2_date(value):
 
 
 def environment(**options):
-    options['extensions'] = ['jinja2.ext.i18n',
-                             'jinja2.ext.with_',
-                             ]
+    # options['extensions'] = ['jinja2.ext.i18n',
+    #                          'jinja2.ext.with_',
+    #                          ]
     env = Environment(**options)
-    env.install_gettext_translations(translation)
+    # env.install_gettext_translations(translation)
     env.globals.update({
         'static': staticfiles_storage.url,
         'url': reverse,
         'get_current_language': translation.get_language,
         'get_available_languages': settings.LANGUAGES,
-        'lgcode': get_client().say_text,  # todo: should become a more performant solution
+        # 'lgcode': get_client().say_text,  # todo: should become a more performant solution
     })
     env.filters['datetime'] = jinja2_datetime
     env.filters['date'] = jinja2_date
