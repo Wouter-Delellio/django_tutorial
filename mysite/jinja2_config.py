@@ -23,11 +23,11 @@ def jinja2_date(value):
 
 
 def environment(**options):
-    # options['extensions'] = ['jinja2.ext.i18n',
-    #                          'jinja2.ext.with_',
-    #                          ]
+    options['extensions'] = ['jinja2.ext.i18n',
+                             'jinja2.ext.with_',
+                             ]
     env = Environment(**options)
-    # env.install_gettext_translations(translation)
+    env.install_gettext_translations(translation)
     env.globals.update({
         'static': staticfiles_storage.url,
         'url': reverse,

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <link rel="stylesheet" href="{{ static('polls/style.css') }}">
 
     <title>"details!"</title>
+    <script>
+        console.log("#### question: {{question.choice_set.all()}}" )
+    </script>
 </head>
 
 <body>
@@ -15,12 +17,18 @@
 <h1>{{ question.question_text }}</h1>
 
 <ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
+    {% for choice in question.choice_set.all() %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }}
+        {% trans count=choice.votes %}
+        vote
+        {% pluralize %}
+        votes
+        {% endtrans %}
+</li>
+    {% endfor %}
 </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<a href="{{ url('polls:detail', args=[question.id]) }}">Vote again?</a>
 
 </body>
 </html>
